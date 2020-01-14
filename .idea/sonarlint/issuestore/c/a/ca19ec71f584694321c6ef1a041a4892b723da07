@@ -1,7 +1,4 @@
 
 }squid:S1450"aRemove the "mAllRecordListView" field and declare it as a local variable in the relevant methods.(ƒ‹ù¯ÿÿÿÿÿ
-Msquid:EmptyStatementUsageCheck;"Remove this empty statement.(š©—8¸•—ú-
-Fsquid:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸•—ú-
-zsquid:S1450"WRemove the "mAdapter" field and declare it as a local variable in the relevant methods.(çÆ´±ûÿÿÿÿ8ñÛô•ú-
 psquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ºÆØ
-dsquid:S2142*"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8¸•—ú-
+zsquid:S1450"WRemove the "mAdapter" field and declare it as a local variable in the relevant methods.(çÆ´±ûÿÿÿÿ8ñÛô•ú-

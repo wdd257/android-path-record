@@ -1,8 +1,9 @@
 
-isquid:S1192%"MDefine a constant instead of duplicating this literal "IOException:" 3 times.(×›ñÌøÿÿÿÿ
-jsquid:UselessImportCheck"?Remove this unused import 'com.alibaba.fastjson.TypeReference'.(ÿÖóò8Ÿú-
-Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8êäÓ‘ú-
-nsquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(æ»™Şúÿÿÿÿ8êáäú-
 rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Æİ†ö
+jsquid:UselessImportCheck":Remove this unused import 'okhttp3.internal.http2.Header'.(ı‰Õ©ıÿÿÿÿ8ìÎ¡™ú-
+jsquid:UselessImportCheck"?Remove this unused import 'com.alibaba.fastjson.TypeReference'.(ÿÖóò8Ÿú-
+isquid:S1192#"MDefine a constant instead of duplicating this literal "IOException:" 3 times.(×›ñÌøÿÿÿÿ
+Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8êäÓ‘ú-
 ^squid:UselessImportCheck".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8êäÓ‘ú-
-Fsquid:S1068"*Remove this unused "header" private field.(ÈĞ×øÿÿÿÿ
+;squid:S1118'"Hide this public constructor.(–ÏÆ§8ìÎ¡™ú-
+nsquid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(æ»™Şúÿÿÿÿ8êáäú-

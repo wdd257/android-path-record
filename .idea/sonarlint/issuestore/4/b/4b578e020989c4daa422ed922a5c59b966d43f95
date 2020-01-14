@@ -1,15 +1,15 @@
 
-@squid:S1148ƒ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Ksquid:S16593"/Declare "mGraspRadioButton" on a separate line.(ÑÜ‡äøÿÿÿÿ
-hsquid:S1301¥"KReplace this "switch" statement by "if" statements to increase readability.(ıŞ³‹ùÿÿÿÿ
-Esquid:S16598"/Declare "mOriginRoleMarker" on a separate line.(‘¯ğp
-Vsquid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ
-™squid:S1186õ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÿ•á
 Hsquid:S1659:",Declare "mGraspPolyline" on a separate line.(Ã—¾ıøÿÿÿÿ
-Isquid:S16599"-Declare "mGraspEndMarker" on a separate line.(ë‘åÿøÿÿÿÿ
-Jsquid:S16599".Declare "mGraspRoleMarker" on a separate line.(ë‘åÿøÿÿÿÿ
-Isquid:S00108è")Either remove or fill this block of code.(å¥‡8ç°ëøù-
-osquid:ModifiersOrderCheck1"EReorder the modifiers to comply with the Java Language Specification.(îõ—öùÿÿÿÿ
-Wsquid:S3398Ï"?Move this method into the anonymous class declared at line 160.(º äı
+@squid:S1148†"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
 Dsquid:S16598".Declare "mOriginEndMarker" on a separate line.(‘¯ğp
-V"squid:SwitchLastCaseIsDefaultCheckü""Add a default case to this switch.(Ò“ÿšùÿÿÿÿ
+hsquid:S1301¨"KReplace this "switch" statement by "if" statements to increase readability.(ıŞ³‹ùÿÿÿÿ
+osquid:ModifiersOrderCheck1"EReorder the modifiers to comply with the Java Language Specification.(îõ—öùÿÿÿÿ
+Wsquid:S3398Ò"?Move this method into the anonymous class declared at line 163.(º äı
+Isquid:S00108ë")Either remove or fill this block of code.(å¥‡8ç°ëøù-
+Ksquid:S16593"/Declare "mGraspRadioButton" on a separate line.(ÑÜ‡äøÿÿÿÿ
+™squid:S1186ø"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÿ•á
+V"squid:SwitchLastCaseIsDefaultCheckÿ""Add a default case to this switch.(Ò“ÿšùÿÿÿÿ
+Vsquid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ
+Isquid:S16599"-Declare "mGraspEndMarker" on a separate line.(ë‘åÿøÿÿÿÿ
+Esquid:S16598"/Declare "mOriginRoleMarker" on a separate line.(‘¯ğp
+Jsquid:S16599".Declare "mGraspRoleMarker" on a separate line.(ë‘åÿøÿÿÿÿ
