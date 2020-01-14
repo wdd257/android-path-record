@@ -1,0 +1,76 @@
+
+[squid:S1155Ú">Use isEmpty() to check whether the collection is empty or not.(´ïûşÿÿÿÿ
+Ssquid:S1066ª"/Merge this if statement with the enclosing one.(ÕÉª‘ıÿÿÿÿ8¢½»–ú-
+Nsquid:S00108®")Either remove or fill this block of code.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+Gsquid:S1148Æ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8˜à—ú-
+Gsquid:S1148ä"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“æÆ–ú-
+jsquid:CommentedOutCodeLine€"<This block of commented-out lines of code should be removed.(Úñ¾¤8¨îÉ•ú-
+wsquid:S1149è"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(™ûşÍ
+„squid:S1488¢"eImmediately return this expression instead of assigning it to the temporary variable "permissionInt".(­æ³8“æÆ–ú-
+Gsquid:S1148š"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“æÆ–ú-
+osquid:ModifiersOrderCheck;"EReorder the modifiers to comply with the Java Language Specification.(û˜¥şùÿÿÿÿ
+Isquid:S1181™"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+Jsquid:S1168œ"+Return an empty collection instead of null.(¥¹ï8“æÆ–ú-
+Isquid:S1068;"-Remove this unused "CALLTRACE" private field.(û˜¥şùÿÿÿÿ
+xsquid:S1450A"\Remove the "tracePolytion" field and declare it as a local variable in the relevant methods.(ê¶ì¡ıÿÿÿÿ
+Œsquid:UselessImportCheck"\Remove this unused import 'com.amap.api.location.AMapLocationClientOption.AMapLocationMode'.(ë‡×‘úÿÿÿÿ8øº¼’ú-
+|squid:S1149õ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(¦‹ØŒûÿÿÿÿ
+Osquid:S1068E",Remove this unused "mEndTime" private field.(Ó™´šıÿÿÿÿ8¼´—•ú-
+squid:S1488Í"bImmediately return this expression instead of assigning it to the temporary variable "deviceName".(½ĞãÍ8˜à—ú-
+jsquid:CommentedOutCodeLineÌ"<This block of commented-out lines of code should be removed.(Š¨ÁÊ8˜à—ú-
+†squid:S3008X"cRename this field "BACK_LOCATION_PERMISSION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š÷†€şÿÿÿÿ8Èèª–ú-
+Isquid:S1181”"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+Gsquid:S1148ı"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“æÆ–ú-
+`squid:S3878¡"ADisambiguate this call by either casting as "Class" or "Class[]".(•—Óş8“æÆ–ú-
+[squid:S1155Ó">Use isEmpty() to check whether the collection is empty or not.(â×—˜ÿÿÿÿÿ
+‰squid:S1488¬"eImmediately return this expression instead of assigning it to the temporary variable "permissionInt".(¼„õ»úÿÿÿÿ8“æÆ–ú-
+Nsquid:S1066¦"/Merge this if statement with the enclosing one.(Ä‘â†8“æÆ–ú-
+Isquid:S1181¬"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+Jsquid:S1068J".Remove this unused "recordList" private field.(Û–Ñ½úÿÿÿÿ
+Isquid:S1181®"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8¢½»–ú-
+}squid:S2293‹"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚·üÿÿÿÿ8“æÆ–ú-
+Nsquid:S00108¤")Either remove or fill this block of code.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+\squid:UnusedPrivateMethod•"/Remove this unused private "redrawline" method.(çÃ±8¨îÉ•ú-
+Gsquid:S1148í"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“æÆ–ú-
+Lsquid:S1066ì"/Merge this if statement with the enclosing one.(´ïûşÿÿÿÿ
+usquid:S2293J"YReplace the type specification in this constructor call with the diamond operator ("<>").(Û–Ñ½úÿÿÿÿ
+Isquid:S1181ã"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+Ysquid:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8“æÆ–ú-
+Gsquid:S1148›"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“æÆ–ú-
+[squid:S1155å">Use isEmpty() to check whether the collection is empty or not.(â×—˜ÿÿÿÿÿ
+Isquid:S1181®"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+bsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ö¹ÿ°úÿÿÿÿ8“æÆ–ú-
+Isquid:S1181š"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+esquid:S3878«"ADisambiguate this call by either casting as "Class" or "Class[]".(ğé†üÿÿÿÿ8“æÆ–ú-
+Osquid:S1068G",Remove this unused "DbHepler" private field.(ŸèËÖÿÿÿÿÿ8Í¹™•ú-
+squid:S1450@"^Remove the "mLocationOption" field and declare it as a local variable in the relevant methods.(¶îºøúÿÿÿÿ8øº¼’ú-
+Psquid:S1068K"-Remove this unused "tracesize" private field.(¥´öİÿÿÿÿÿ8¨îÉ•ú-
+bsquid:UnusedPrivateMethodÑ"0Remove this unused private "getDistance" method.(Ç¥êôøÿÿÿÿ8íöÿ“ú-
+Gsquid:S1148Ø"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“æÆ–ú-
+hsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ğ†Ãúÿÿÿÿ
+}squid:S1450Q"ZRemove the "mUiSettings" field and declare it as a local variable in the relevant methods.(÷”òœøÿÿÿÿ8®Æ¶–ú-
+Isquid:S1181¤"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+Gsquid:S1659A"+Declare "tracePolytion" on a separate line.(ê¶ì¡ıÿÿÿÿ
+wsquid:S00116G"SRename this field "DbHepler" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸèËÖÿÿÿÿÿ8¯ßêøù-
+Qsquid:S1068R".Remove this unused "listRecord" private field.(š°Öìûÿÿÿÿ8Ë“¹•ú-
+usquid:S2293I"YReplace the type specification in this constructor call with the diamond operator ("<>").(´¸Úşÿÿÿÿ
+tsquid:S1488¬"\Immediately return this expression instead of assigning it to the temporary variable "date".(‘å€”
+Nsquid:S00108”")Either remove or fill this block of code.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+Gsquid:S1148À"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“æÆ–ú-
+Gsquid:S1148¯"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¢½»–ú-
+Isquid:S1181¿"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+Isquid:S1181ì"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+hsquid:UnusedPrivateMethodä"6Remove this unused private "getPathLineString" method.(Ô±ƒ‚ùÿÿÿÿ8ï²€”ú-
+Gsquid:S1148­"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“æÆ–ú-
+jsquid:CallToDeprecatedMethodŸ"<Remove this use of "LOCATION_TYPE_LOCATE"; it is deprecated.(º®£úÿÿÿÿ
+\squid:UnusedPrivateMethodµ"*Remove this unused private "trace" method.(÷¸°şÿÿÿÿÿ8¨îÉ•ú-
+™squid:S1186Ë"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¡ß«ò
+Isquid:S1181×"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+Isquid:S1181ü"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ8“æÆ–ú-
+gsquid:CallToDeprecatedMethodŸ"9Remove this use of "setMyLocationType"; it is deprecated.(º®£úÿÿÿÿ
+osquid:CommentedOutCodeLineû"<This block of commented-out lines of code should be removed.(Œè¸›şÿÿÿÿ8Á”à–ú-
+[squid:S1155ì">Use isEmpty() to check whether the collection is empty or not.(´ïûşÿÿÿÿ
+Osquid:S2589ø"7Remove this expression which always evaluates to "true"(ˆÇÁ‹
+psquid:S2293H"YReplace the type specification in this constructor call with the diamond operator ("<>").(½¿°Ã
+Nsquid:S1066¥"/Merge this if statement with the enclosing one.(Ô‹¦ú8“æÆ–ú-
+esquid:S3878’"ADisambiguate this call by either casting as "Class" or "Class[]".(ö†Öùÿÿÿÿ8“æÆ–ú-

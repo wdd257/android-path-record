@@ -18,18 +18,18 @@ public class PathRecord {
 	private String mDuration;
 	private String mAveragespeed;
 	private String mDate;
-	private int mId = 0;
+	private String mId;
 
 	public PathRecord() {
 
 	}
 
-	public int getId() {
+	public String getmId() {
 		return mId;
 	}
 
-	public void setId(int id) {
-		this.mId = id;
+	public void setmId(String mId) {
+		this.mId = mId;
 	}
 
 	public AMapLocation getStartpoint() {

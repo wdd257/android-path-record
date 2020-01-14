@@ -1,0 +1,31 @@
+
+Jsquid:S1444.".Make this "public static latitude" field final(Õ„ÆÇşÿÿÿÿ
+Fsquid:S1444/"/Make this "public static longitude" field final(ššËæ
+t
+squid:S135@"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ
+‡"squid:ClassVariableVisibilityCheck."TMake latitude a static final constant or non-public and provide accessors if needed.(Õ„ÆÇşÿÿÿÿ
+ƒ"squid:ClassVariableVisibilityCheck/"UMake longitude a static final constant or non-public and provide accessors if needed.(ššËæ
+Vsquid:UselessImportCheck"2Remove this unused import 'android.os.IInterface'.(“¡ñ
+`squid:UselessImportCheck"7Remove this unused import 'android.os.RemoteException'.(ªÜş¨şÿÿÿÿ
+Wsquid:UselessImportCheck".Remove this unused import 'android.os.Parcel'.(˜ÂÍóûÿÿÿÿ
+Wsquid:UselessImportCheck"3Remove this unused import 'java.io.FileDescriptor'.(Ş…º†
+Zsquid:UselessImportCheck"1Remove this unused import 'android.widget.Toast'.(©›ïÍúÿÿÿÿ
+Vsquid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ
+?squid:S1148G"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+?squid:S1148R"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+?squid:S1148t"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Isquid:S1135#"2Complete the task associated to this TODO comment.(‡ƒÑ
+Isquid:S1135$"2Complete the task associated to this TODO comment.(ŞÂ¦ÿ
+Xsquid:S11266"AReplace this if-then-else statement by a single return statement.(ËÃô
+Qsquid:S1161?":Add the "@Override" annotation above this method signature(“–ış
+]squid:S2142D"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+Nsquid:S1135F"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+]squid:S2142O"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+Nsquid:S1135Q"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+]squid:S2142r"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+Osquid:S1135‚"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+Msquid:S2696"6Make the enclosing method "static" or remove this set.(ŒÈá
+Lsquid:S2209"5Change this instance-reference to a static reference.(ŒÈá
+Ssquid:S2696"6Make the enclosing method "static" or remove this set.(àõ’üÿÿÿÿ
+Rsquid:S2209"5Change this instance-reference to a static reference.(àõ’üÿÿÿÿ
+?squid:S3398"'Move this method into "EmulatorBinder".(²Ú¤ù

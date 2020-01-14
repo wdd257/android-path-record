@@ -57,7 +57,7 @@ public class RecordShowActivity extends Activity implements
 	private Marker mGraspStartMarker, mGraspEndMarker, mGraspRoleMarker;
 	private Polyline mOriginPolyline, mGraspPolyline;
 
-	private int mRecordItemId;
+	private String mRecordItemId;
 	private List<LatLng> mOriginLatLngList;
 	private List<LatLng> mGraspLatLngList;
 	private boolean mGraspChecked = false;
@@ -67,24 +67,27 @@ public class RecordShowActivity extends Activity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.recorddisplay_activity);
-		mMapView = (MapView) findViewById(R.id.map);
-		mMapView.onCreate(savedInstanceState);// 此方法必须重写
-		mGraspRadioButton = (RadioButton) findViewById(R.id.record_show_activity_grasp_radio_button);
-		mOriginRadioButton = (RadioButton) findViewById(R.id.record_show_activity_origin_radio_button);
-		mOriginRadioButton.setOnClickListener(this);
-		mGraspRadioButton.setOnClickListener(this);
-		mDisplaybtn = (ToggleButton) findViewById(R.id.displaybtn);
-		mDisplaybtn.setOnClickListener(this);
-		Intent recordIntent = getIntent();
-		int threadPoolSize = Runtime.getRuntime().availableProcessors() * 2 + 3;
-		mThreadPool = Executors.newFixedThreadPool(threadPoolSize);
-		if (recordIntent != null) {
-			mRecordItemId = recordIntent.getIntExtra(RecordActivity.RECORD_ID,
-					-1);
+		try {
+			super.onCreate(savedInstanceState);
+			setContentView(R.layout.recorddisplay_activity);
+			mMapView = (MapView) findViewById(R.id.map);
+			mMapView.onCreate(savedInstanceState);// 此方法必须重写
+			mGraspRadioButton = (RadioButton) findViewById(R.id.record_show_activity_grasp_radio_button);
+			mOriginRadioButton = (RadioButton) findViewById(R.id.record_show_activity_origin_radio_button);
+			mOriginRadioButton.setOnClickListener(this);
+			mGraspRadioButton.setOnClickListener(this);
+			mDisplaybtn = (ToggleButton) findViewById(R.id.displaybtn);
+			mDisplaybtn.setOnClickListener(this);
+			Intent recordIntent = getIntent();
+			int threadPoolSize = Runtime.getRuntime().availableProcessors() * 2 + 3;
+			mThreadPool = Executors.newFixedThreadPool(threadPoolSize);
+			if (recordIntent != null) {
+				mRecordItemId = recordIntent.getStringExtra(RecordActivity.RECORD_ID);
+			}
+			initMap();
+		}catch (Exception e){
+			Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
 		}
-		initMap();
 	}
 
 	private void initMap() {
@@ -180,6 +183,7 @@ public class RecordShowActivity extends Activity implements
 		}
 	}
 
+	@Override
 	public void onDestroy() {
 		super.onDestroy();
 		if (mThreadPool != null) {
@@ -207,10 +211,8 @@ public class RecordShowActivity extends Activity implements
 		// 轨迹纠偏初始化
 		LBSTraceClient mTraceClient = new LBSTraceClient(
 				getApplicationContext());
-		DbAdapter dbhelper = new DbAdapter(this.getApplicationContext());
-		dbhelper.open();
+		DbAdapter dbhelper = new DbAdapter();
 		PathRecord mRecord = dbhelper.queryRecordById(mRecordItemId);
-		dbhelper.close();
 		if (mRecord != null) {
 			List<AMapLocation> recordList = mRecord.getPathline();
 			AMapLocation startLoc = mRecord.getStartpoint();

@@ -1,11 +1,15 @@
 package amap.com.database;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
+import amap.com.Client.QueryParam;
+import amap.com.Client.RecordClient;
+import amap.com.record.TraceRecordDTO;
+import amap.com.service.RecordService;
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -15,175 +19,174 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import amap.com.record.PathRecord;
 import amap.com.recorduitl.Util;
+import com.amap.api.location.AMapLocation;
+import com.amap.api.maps.AMapUtils;
+import com.amap.api.maps.model.LatLng;
 
 /**
  * 数据库相关操作，用于存取轨迹记录
- * 
  */
 public class DbAdapter {
-	public static final String KEY_ROWID = "id";
-	public static final String KEY_DISTANCE = "distance";
-	public static final String KEY_DURATION = "duration";
-	public static final String KEY_SPEED = "averagespeed";
-	public static final String KEY_LINE = "pathline";
-	public static final String KEY_STRAT = "stratpoint";
-	public static final String KEY_END = "endpoint";
-	public static final String KEY_DATE = "date";
-	private final static String DATABASE_PATH = android.os.Environment
-			.getExternalStorageDirectory().getAbsolutePath() + "/recordPath";
-	static final String DATABASE_NAME = DATABASE_PATH + "/" + "record.db";
-	private static final int DATABASE_VERSION = 1;
-	private static final String RECORD_TABLE = "record";
-	private static final String RECORD_CREATE = "create table if not exists record("
-			+ KEY_ROWID
-			+ " integer primary key autoincrement,"
-			+ "stratpoint STRING,"
-			+ "endpoint STRING,"
-			+ "pathline STRING,"
-			+ "distance STRING,"
-			+ "duration STRING,"
-			+ "averagespeed STRING,"
-			+ "date STRING" + ");";
+    public static final String KEY_ROWID = "id";
+    public static final String KEY_DISTANCE = "distance";
+    public static final String KEY_DURATION = "duration";
+    public static final String KEY_SPEED = "averagespeed";
+    public static final String KEY_LINE = "pathline";
+    public static final String KEY_STRAT = "stratpoint";
+    public static final String KEY_END = "endpoint";
+    public static final String KEY_DATE = "date";
 
-	public static class DatabaseHelper extends SQLiteOpenHelper {
-		public DatabaseHelper(Context context) {
-			super(context, DATABASE_NAME, null, DATABASE_VERSION);
-		}
+    /**
+     * 数据库存入一个数据点
+     *
+     * @param amLocationStr
+     * @param date
+     * @return
+     */
+    public static TraceRecordDTO createrecord(String amLocationStr, Date date) {
+        TraceRecordDTO recordDTO = new TraceRecordDTO();
+        recordDTO.setAmLocationStr(amLocationStr);
+        recordDTO.setCreateTime(date);
+        return recordDTO;
+    }
 
-		@Override
-		public void onCreate(SQLiteDatabase db) {
-			db.execSQL(RECORD_CREATE);
-		}
+    /**
+     * 查询所有轨迹记录
+     *
+     * @return
+     */
+    public List<PathRecord> queryRecordAll() {
+        List<PathRecord> allRecord = new ArrayList<PathRecord>();
+        List<TraceRecordDTO> recordDTOS = RecordService.getAllTraceRecordHistory();
+        if (recordDTOS == null || recordDTOS.isEmpty()) {
+            recordDTOS = new ArrayList<>();
+        }
+        //根据imei拆分记录
+        Map<String, List<TraceRecordDTO>> map = new HashMap<>();
+        for (TraceRecordDTO dto : recordDTOS) {
+            if (map.get(dto.getImei()) == null) {
+                map.put(dto.getImei(), new ArrayList<TraceRecordDTO>());
+            }
+            map.get(dto.getImei()).add(dto);
+        }
+        if (!map.isEmpty() && !map.values().isEmpty()) {
+            for (List<TraceRecordDTO> list : map.values()) {
+                PathRecord record = TraceRecordDTO2PathRecord(list);
+                allRecord.add(record);
+            }
+        }
 
-		@Override
-		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		}
-	}
+        return allRecord;
+    }
 
-	private Context mCtx = null;
-	private DatabaseHelper dbHelper;
-	private SQLiteDatabase db;
+    /**
+     * 按照id查询
+     *
+     * @param mRecordItemId
+     * @return
+     */
+    public PathRecord queryRecordById(String mRecordItemId) {
+        QueryParam queryParam = new QueryParam();
+        queryParam.setImei(mRecordItemId);
+        List<TraceRecordDTO> dtoList = RecordService.getTraceRecordHistory(queryParam);
+        PathRecord record = new PathRecord();
 
-	// constructor
-	public DbAdapter(Context ctx) {
-		this.mCtx = ctx;
-		dbHelper = new DatabaseHelper(mCtx);
-	}
+        if (dtoList != null && !dtoList.isEmpty()) {
+            record = TraceRecordDTO2PathRecord(dtoList);
+        }
+        return record;
+    }
 
-	public DbAdapter open() throws SQLException {
+    private PathRecord TraceRecordDTO2PathRecord(List<TraceRecordDTO> dtoList) {
+        PathRecord record = new PathRecord();
+        if (dtoList == null || dtoList.isEmpty()) {
+            return record;
+        }
+        long mStartTime = dtoList.get(0).getCreateTime().getTime();
+        long mEndTime = dtoList.get(dtoList.size() - 1).getCreateTime().getTime();
+        List<AMapLocation> aMapLocationList = parseLocationList(dtoList);
 
-		db = dbHelper.getWritableDatabase();
-		return this;
-	}
+        String duration = String.valueOf((mEndTime - mStartTime) / 1000f);
+        float distance = getDistance(aMapLocationList);
+        String average = String.valueOf(distance / (float) (mEndTime - mStartTime));
+        AMapLocation firstLocaiton = aMapLocationList.get(0);
+        AMapLocation lastLocaiton = aMapLocationList.get(aMapLocationList.size() - 1);
 
-	public void close() {
-		dbHelper.close();
-	}
+        record.setmId(dtoList.get(0).getImei());
+        record.setDistance(String.valueOf(distance));
+        record.setDuration(duration);
+        record.setAveragespeed(average);
+        record.setDate(getcueDate(mStartTime));
+        record.setPathline(aMapLocationList);
+        record.setStartpoint(firstLocaiton);
+        record.setEndpoint(lastLocaiton);
 
-	public Cursor getall() {
-		return db.rawQuery("SELECT * FROM record", null);
-	}
+        return record;
+    }
 
-	// remove an entry
-	public boolean delete(long rowId) {
+    @SuppressLint("SimpleDateFormat")
+    private String getcueDate(long time) {
+        SimpleDateFormat formatter = new SimpleDateFormat(
+                "yyyy-MM-dd  HH:mm:ss ");
+        Date curDate = new Date(time);
+        String date = formatter.format(curDate);
+        return date;
+    }
 
-		return db.delete(RECORD_TABLE, "id=" + rowId, null) > 0;
-	}
+    private String getPathLineString(List<AMapLocation> list) {
+        if (list == null || list.size() == 0) {
+            return "";
+        }
+        StringBuffer pathline = new StringBuffer();
+        for (int i = 0; i < list.size(); i++) {
+            AMapLocation location = list.get(i);
+            String locString = amapLocationToString(location);
+            pathline.append(locString).append(";");
+        }
+        String pathLineString = pathline.toString();
+        pathLineString = pathLineString.substring(0,
+                pathLineString.length() - 1);
+        return pathLineString;
+    }
 
-	/**
-	 * 数据库存入一条轨迹
-	 * 
-	 * @param distance
-	 * @param duration
-	 * @param averagespeed
-	 * @param pathline
-	 * @param stratpoint
-	 * @param endpoint
-	 * @param date
-	 * @return
-	 */
-	public long createrecord(String distance, String duration,
-			String averagespeed, String pathline, String stratpoint,
-			String endpoint, String date) {
-		ContentValues args = new ContentValues();
-		args.put("distance", distance);
-		args.put("duration", duration);
-		args.put("averagespeed", averagespeed);
-		args.put("pathline", pathline);
-		args.put("stratpoint", stratpoint);
-		args.put("endpoint", endpoint);
-		args.put("date", date);
-		return db.insert(RECORD_TABLE, null, args);
-	}
+    private String amapLocationToString(AMapLocation location) {
+        StringBuffer locString = new StringBuffer();
+        locString.append(location.getLatitude()).append(",");
+        locString.append(location.getLongitude()).append(",");
+        locString.append(location.getProvider()).append(",");
+        locString.append(location.getTime()).append(",");
+        locString.append(location.getSpeed()).append(",");
+        locString.append(location.getBearing());
+        return locString.toString();
+    }
 
-	/**
-	 * 查询所有轨迹记录
-	 * 
-	 * @return
-	 */
-	public List<PathRecord> queryRecordAll() {
-		List<PathRecord> allRecord = new ArrayList<PathRecord>();
-		Cursor allRecordCursor = db.query(RECORD_TABLE, getColumns(), null,
-				null, null, null, null);
-		while (allRecordCursor.moveToNext()) {
-			PathRecord record = new PathRecord();
-			record.setId(allRecordCursor.getInt(allRecordCursor
-					.getColumnIndex(DbAdapter.KEY_ROWID)));
-			record.setDistance(allRecordCursor.getString(allRecordCursor
-					.getColumnIndex(DbAdapter.KEY_DISTANCE)));
-			record.setDuration(allRecordCursor.getString(allRecordCursor
-					.getColumnIndex(DbAdapter.KEY_DURATION)));
-			record.setDate(allRecordCursor.getString(allRecordCursor
-					.getColumnIndex(DbAdapter.KEY_DATE)));
-			String lines = allRecordCursor.getString(allRecordCursor
-					.getColumnIndex(DbAdapter.KEY_LINE));
-			record.setPathline(Util.parseLocations(lines));
-			record.setStartpoint(Util.parseLocation(allRecordCursor
-					.getString(allRecordCursor
-							.getColumnIndex(DbAdapter.KEY_STRAT))));
-			record.setEndpoint(Util.parseLocation(allRecordCursor
-					.getString(allRecordCursor
-							.getColumnIndex(DbAdapter.KEY_END))));
-			allRecord.add(record);
-		}
-		Collections.reverse(allRecord);
-		return allRecord;
-	}
+    private float getDistance(List<AMapLocation> list) {
+        float distance = 0;
+        if (list == null || list.size() == 0) {
+            return distance;
+        }
+        for (int i = 0; i < list.size() - 1; i++) {
+            AMapLocation firstpoint = list.get(i);
+            AMapLocation secondpoint = list.get(i + 1);
+            LatLng firstLatLng = new LatLng(firstpoint.getLatitude(),
+                    firstpoint.getLongitude());
+            LatLng secondLatLng = new LatLng(secondpoint.getLatitude(),
+                    secondpoint.getLongitude());
+            double betweenDis = AMapUtils.calculateLineDistance(firstLatLng,
+                    secondLatLng);
+            distance = (float) (distance + betweenDis);
+        }
+        return distance;
+    }
 
-	/**
-	 * 按照id查询
-	 * 
-	 * @param mRecordItemId
-	 * @return
-	 */
-	public PathRecord queryRecordById(int mRecordItemId) {
-		String where = KEY_ROWID + "=?";
-		String[] selectionArgs = new String[] { String.valueOf(mRecordItemId) };
-		Cursor cursor = db.query(RECORD_TABLE, getColumns(), where,
-				selectionArgs, null, null, null);
-		PathRecord record = new PathRecord();
-		if (cursor.moveToNext()) {
-			record.setId(cursor.getInt(cursor
-					.getColumnIndex(DbAdapter.KEY_ROWID)));
-			record.setDistance(cursor.getString(cursor
-					.getColumnIndex(DbAdapter.KEY_DISTANCE)));
-			record.setDuration(cursor.getString(cursor
-					.getColumnIndex(DbAdapter.KEY_DURATION)));
-			record.setDate(cursor.getString(cursor
-					.getColumnIndex(DbAdapter.KEY_DATE)));
-			String lines = cursor.getString(cursor
-					.getColumnIndex(DbAdapter.KEY_LINE));
-			record.setPathline(Util.parseLocations(lines));
-			record.setStartpoint(Util.parseLocation(cursor.getString(cursor
-					.getColumnIndex(DbAdapter.KEY_STRAT))));
-			record.setEndpoint(Util.parseLocation(cursor.getString(cursor
-					.getColumnIndex(DbAdapter.KEY_END))));
-		}
-		return record;
-	}
-
-	private String[] getColumns() {
-		return new String[] { KEY_ROWID, KEY_DISTANCE, KEY_DURATION, KEY_SPEED,
-				KEY_LINE, KEY_STRAT, KEY_END, KEY_DATE };
-	}
+    private List<AMapLocation> parseLocationList(List<TraceRecordDTO> list) {
+        List<AMapLocation> aMapLocationList = new ArrayList<>();
+        if (list == null || list.size() == 0) {
+            return aMapLocationList;
+        }
+        for (TraceRecordDTO dto : list) {
+            aMapLocationList.add(Util.parseLocation(dto.getAmLocationStr()));
+        }
+        return aMapLocationList;
+    }
 }
