@@ -1,4 +1,4 @@
-package amap.com.recorduitl;
+package amap.client.recorduitl;
 
 import java.util.ArrayList;
 import java.util.List;

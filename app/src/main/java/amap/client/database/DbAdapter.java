@@ -1,24 +1,17 @@
-package amap.com.database;
+package amap.client.database;
 
 
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 
-import amap.com.Client.QueryParam;
-import amap.com.Client.RecordClient;
-import amap.com.record.TraceRecordDTO;
-import amap.com.service.RecordService;
+import amap.client.Client.QueryParam;
+import amap.client.record.TraceRecordDTO;
+import amap.client.service.RecordService;
 import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
-import amap.com.record.PathRecord;
-import amap.com.recorduitl.Util;
+import amap.client.record.PathRecord;
+import amap.client.recorduitl.Util;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.AMapUtils;
 import com.amap.api.maps.model.LatLng;

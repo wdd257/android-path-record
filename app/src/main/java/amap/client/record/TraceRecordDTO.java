@@ -1,4 +1,4 @@
-package amap.com.record;
+package amap.client.record;
 
 import java.io.Serializable;
 import java.util.Date;

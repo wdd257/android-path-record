@@ -1,6 +1,6 @@
-package amap.com.autoboot;
+package amap.client.autoboot;
 
-import amap.com.service.LocationService;
+import amap.client.service.LocationService;
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;

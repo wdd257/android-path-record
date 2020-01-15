@@ -1,8 +1,8 @@
-package amap.com.service;
+package amap.client.service;
 
-import amap.com.Client.QueryParam;
-import amap.com.Client.RecordClient;
-import amap.com.record.TraceRecordDTO;
+import amap.client.Client.QueryParam;
+import amap.client.Client.RecordClient;
+import amap.client.record.TraceRecordDTO;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 

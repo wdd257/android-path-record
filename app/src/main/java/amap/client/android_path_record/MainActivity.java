@@ -1,6 +1,6 @@
-package amap.com.android_path_record;
+package amap.client.android_path_record;
 
-import amap.com.service.LocationService;
+import amap.client.service.LocationService;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -15,7 +15,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 

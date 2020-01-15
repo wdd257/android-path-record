@@ -1,4 +1,4 @@
-package amap.com.android_path_record;
+package amap.client.android_path_record;
 
 import org.junit.Test;
 

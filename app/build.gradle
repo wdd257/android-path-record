@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion '29.0.2'
     defaultConfig {
-        applicationId "amap.com.android_path_record"
+        applicationId "amap.client.android_path_record"
         minSdkVersion 11
         targetSdkVersion 26
         versionCode 1

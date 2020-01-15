@@ -1,4 +1,4 @@
-package amap.com.Client;
+package amap.client.Client;
 
 import java.io.Serializable;
 

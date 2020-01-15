@@ -1,4 +1,4 @@
-package amap.com.android_path_record;
+package amap.client.android_path_record;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

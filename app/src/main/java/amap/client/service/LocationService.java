@@ -1,8 +1,8 @@
-package amap.com.service;
+package amap.client.service;
 
-import amap.com.Client.RecordClient;
-import amap.com.database.DbAdapter;
-import amap.com.record.TraceRecordDTO;
+import amap.client.Client.RecordClient;
+import amap.client.database.DbAdapter;
+import amap.client.record.TraceRecordDTO;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;

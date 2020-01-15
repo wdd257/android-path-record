@@ -1,16 +1,12 @@
-package amap.com.Client;
+package amap.client.Client;
 
-import amap.com.record.TraceRecordDTO;
+import amap.client.record.TraceRecordDTO;
 import android.util.Log;
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
 import okhttp3.*;
-import okhttp3.internal.http2.Header;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class RecordClient {
     public static final MediaType JSON_TYPE = MediaType.get("application/json; charset=utf-8");

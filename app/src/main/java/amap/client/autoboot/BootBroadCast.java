@@ -1,4 +1,4 @@
-package amap.com.autoboot;
+package amap.client.autoboot;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;

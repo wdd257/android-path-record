@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="amap.com.android_path_record">
+          package="amap.client.android_path_record">
     <uses-sdk
             android:minSdkVersion="8"
             android:targetSdkVersion="21"/>
@@ -36,7 +36,7 @@
                 android:name="com.amap.api.v2.apikey"
                 android:value="897ae15ed14afab82ef0b04a60610cd9"/>
 
-        <activity android:name=".MainActivity"
+        <activity android:name="amap.client.android_path_record.MainActivity"
                   android:screenOrientation="portrait">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.MAIN"/>
@@ -47,7 +47,7 @@
 
         <!-- 自启服务广播 -->
         <receiver
-                android:name="amap.com.autoboot.BootBroadCast"
+                android:name="amap.client.autoboot.BootBroadCast"
                 android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
@@ -55,7 +55,7 @@
         </receiver>
 
 
-        <receiver android:name="amap.com.autoboot.Alarmreceiver">
+        <receiver android:name="amap.client.autoboot.Alarmreceiver">
             <intent-filter>
                 <action android:name="alarm.action"/>
             </intent-filter>
@@ -64,7 +64,7 @@
 
         <!-- 配置Service组件,同时配置一个action -->
         <service
-                android:name="amap.com.service.LocationService"
+                android:name="amap.client.service.LocationService"
                 android:process=":remote">
             <intent-filter>
                 <action android:name="amap.com.service.LOCATION_SERVICE"/>
