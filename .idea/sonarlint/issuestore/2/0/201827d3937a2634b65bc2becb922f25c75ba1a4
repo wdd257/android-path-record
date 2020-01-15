@@ -1,0 +1,44 @@
+
+Ksquid:S1066u"/Merge this if statement with the enclosing one.(ÕÉª‘ıÿÿÿÿ
+Gsquid:S1066¸"/Merge this if statement with the enclosing one.(Ô‹¦ú
+Gsquid:S1066¹"/Merge this if statement with the enclosing one.(Ä‘â†
+}squid:S1488µ"eImmediately return this expression instead of assigning it to the temporary variable "permissionInt".(­æ³
+‚squid:S1488¿"eImmediately return this expression instead of assigning it to the temporary variable "permissionInt".(¼„õ»úÿÿÿÿ
+Rsquid:S1141£"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+?squid:S1148z"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+@squid:S1148®"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+@squid:S1148À"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+@squid:S1148Ó"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+@squid:S1148ë"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+@squid:S1148÷"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+@squid:S1148€"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+@squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+@squid:S1148­"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+[squid:S1155¢">Use isEmpty() to check whether the collection is empty or not.(ö¹ÿ°úÿÿÿÿ
+squid:S3008 "cRename this field "BACK_LOCATION_PERMISSION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š÷†€şÿÿÿÿ
+qsquid:S1450"URemove the "intent" field and declare it as a local variable in the relevant methods.(–Ô¼ùÿÿÿÿ
+Asquid:S1181y"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+?squid:S1185ƒ"(Remove this method to simply inherit it.(¹§ 
+@squid:S1185‹"(Remove this method to simply inherit it.(Ñ‚«µ
+@squid:S1185“"(Remove this method to simply inherit it.(ÍÙ÷¢
+Bsquid:S1181­"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+Bsquid:S1181§"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+Gsquid:S00108§")Either remove or fill this block of code.(‡˜ÚÚøÿÿÿÿ
+Bsquid:S1181¿"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+Bsquid:S1181Ò"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+Bsquid:S1181ÿ"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+Bsquid:S1181ê"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+Bsquid:S1181ö"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+Bsquid:S1181"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+bsquid:HiddenFieldCheck‹":Rename "intent" which hides the field declared at line 27.(øØÙ¹ûÿÿÿÿ
+Bsquid:S1181¬"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+vsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚·üÿÿÿÿ
+Csquid:S1168¯"+Return an empty collection instead of null.(¥¹ï
+Bsquid:S1181·"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+Gsquid:S00108·")Either remove or fill this block of code.(‡˜ÚÚøÿÿÿÿ
+Bsquid:S1181Á"%Catch Exception instead of Throwable.(‡˜ÚÚøÿÿÿÿ
+Gsquid:S00108Á")Either remove or fill this block of code.(‡˜ÚÚøÿÿÿÿ
+?squid:S1068"(Remove this unused "conn" private field.(â›’‡
+gsquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(´£ç‚øÿÿÿÿ
+gsquid:CommentedOutCodeLineS"<This block of commented-out lines of code should be removed.(µ¶¸õşÿÿÿÿ
+gsquid:CommentedOutCodeLineX"<This block of commented-out lines of code should be removed.(˜Û´üÿÿÿÿ

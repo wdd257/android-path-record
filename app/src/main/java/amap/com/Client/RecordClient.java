@@ -15,33 +15,34 @@ import java.util.Map;
 public class RecordClient {
     public static final MediaType JSON_TYPE = MediaType.get("application/json; charset=utf-8");
 
-    private static OkHttpClient client;
+    private static OkHttpClient client = new OkHttpClient();
 
-    private static String saveUrl;
-    private static String getUrl;
+    private static String saveUrl = "http://18.176.80.108:8088/saveRecord";
+    private static String getUrl = "http://18.176.80.108:8088/getRecord";
+    private static String getInterval = "http://18.176.80.108:8088/getInterval";
 
-    static {
+    private static long defaultInterval = 120000;
+
+    public static long getInterval() {
         try {
-            client = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url("https://blog.nowcoder.net/n/75b109cee06e4600975de2a234f527dc")
+                    .url(getInterval)
                     .build();
             Response response = client.newCall(request).execute();
-            String data = response.body().string();
-            String urls = data.split("\\[where-are-you]")[1];
-            saveUrl = urls.split("\\|")[0];
-            getUrl = urls.split("\\|")[1];
+            if (!response.isSuccessful()) {
+                return defaultInterval;
+            }
+            long interval = Long.parseLong(response.body().string());
+            return interval <= 0 ? defaultInterval : interval;
         } catch (IOException e) {
             Log.e("IOException:", e.getMessage());
+            return defaultInterval;
         }
     }
 
-    public RecordClient() {
-        /**
-         * https://blog.nowcoder.net/n/75b109cee06e4600975de2a234f527dc
-         */
-        //init();
-    }
+//    public static void main(String[] args) {
+//       System.out.println(getInterval());
+//    }
 
     public static int doSaveRecord(List<TraceRecordDTO> traceRecordDTOList) {
         try {

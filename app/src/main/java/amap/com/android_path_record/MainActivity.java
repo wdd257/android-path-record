@@ -390,7 +390,7 @@ public class MainActivity extends Activity implements LocationSource,
                 //       amapLocation.getLongitude());
                 //mAMap.moveCamera(CameraUpdateFactory.changeLatLng(mylocation));
 
-                saveRecord(amapLocation);
+                //saveRecord(amapLocation);
 
 //                if (btn.isChecked()) {
 //                    record.addpoint(amapLocation);
