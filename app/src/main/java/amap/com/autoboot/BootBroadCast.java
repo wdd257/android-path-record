@@ -21,9 +21,9 @@ public class BootBroadCast extends BroadcastReceiver {
             AlarmManager am = (AlarmManager) context
                     .getSystemService(Context.ALARM_SERVICE);
 
-            // 20秒一个周期，不停的发送广播
+            // 30秒一个周期，不停的发送广播
             am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, firstime,
-                    20 * 1000, sender);
+                    30 * 1000, sender);
         }
 
     }

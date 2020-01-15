@@ -72,6 +72,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         initService();
+
+        //System.exit(0);
     }
 
     /*******************************service info start*********************************/
@@ -120,6 +122,7 @@ public class MainActivity extends Activity {
         } catch (Throwable e) {
             e.printStackTrace();
         }
+        this.finish();
     }
 
     /**
