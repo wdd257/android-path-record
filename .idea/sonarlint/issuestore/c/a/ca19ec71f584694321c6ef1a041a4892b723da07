@@ -1,4 +1,0 @@
-
-}squid:S1450"aRemove the "mAllRecordListView" field and declare it as a local variable in the relevant methods.(ƒ‹ù¯ÿÿÿÿÿ
-psquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ºÆØ
-zsquid:S1450"WRemove the "mAdapter" field and declare it as a local variable in the relevant methods.(çÆ´±ûÿÿÿÿ8ñÛô•ú-

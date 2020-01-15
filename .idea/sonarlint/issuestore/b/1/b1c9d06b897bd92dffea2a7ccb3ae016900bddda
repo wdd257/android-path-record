@@ -1,17 +1,17 @@
 
-dsquid:UselessImportCheck"4Remove this unused import 'android.database.Cursor'.(Ôäåúÿÿÿÿ8ÁÎ§‘ú-
-ssquid:UselessImportCheck"CRemove this unused import 'android.database.sqlite.SQLiteDatabase'.(ãµèÈùÿÿÿÿ8ğ•ıú-
-bsquid:S1155‰">Use isEmpty() to check whether the collection is empty or not.(â×—˜ÿÿÿÿÿ8‹ï“•ú-
-usquid:UselessImportCheck"ERemove this unused import 'android.database.sqlite.SQLiteOpenHelper'.(©ÑÏ™üÿÿÿÿ8ğ•ıú-
-bsquid:S1155¸">Use isEmpty() to check whether the collection is empty or not.(â×—˜ÿÿÿÿÿ8‹ï“•ú-
-ƒsquid:S1149™"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(¦‹ØŒûÿÿÿÿ8‹ï“•ú-
-hsquid:UnusedPrivateMethodˆ"6Remove this unused private "getPathLineString" method.(Ô±ƒ‚ùÿÿÿÿ8‹ï“•ú-
-isquid:UselessImportCheck	"9Remove this unused import 'amap.com.Client.RecordClient'.(´¿ùÿÿÿÿ8áˆóú-
-wsquid:S2293;"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÎĞğ8¾Öëøù-
-jsquid:UselessImportCheck":Remove this unused import 'android.database.SQLException'.(ø‹çëşÿÿÿÿ8ŸÒüú-
-_squid:UselessImportCheck"4Remove this unused import 'android.content.Context'.(©Ê‰è8ğ•ıú-
-{squid:S1488„"\Immediately return this expression instead of assigning it to the temporary variable "date".(‘å€”8‹ï“•ú-
-esquid:UselessImportCheck":Remove this unused import 'android.content.ContentValues'.(å’µŞ8­¾ßú-
-bsquid:S1155¥">Use isEmpty() to check whether the collection is empty or not.(â×—˜ÿÿÿÿÿ8‹ï“•ú-
 ~squid:S1149Œ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(™ûşÍ8‹ï“•ú-
 msquid:S00100d"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ¬¾Ñ8‹ï“•ú-
+bsquid:S1155‰">Use isEmpty() to check whether the collection is empty or not.(â×—˜ÿÿÿÿÿ8‹ï“•ú-
+esquid:UselessImportCheck":Remove this unused import 'android.content.ContentValues'.(å’µŞ8­¾ßú-
+{squid:S1488„"\Immediately return this expression instead of assigning it to the temporary variable "date".(‘å€”8‹ï“•ú-
+usquid:UselessImportCheck"ERemove this unused import 'android.database.sqlite.SQLiteOpenHelper'.(©ÑÏ™üÿÿÿÿ8ğ•ıú-
+bsquid:S1155¸">Use isEmpty() to check whether the collection is empty or not.(â×—˜ÿÿÿÿÿ8‹ï“•ú-
+wsquid:S2293;"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÎĞğ8¾Öëøù-
+dsquid:UselessImportCheck"4Remove this unused import 'android.database.Cursor'.(Ôäåúÿÿÿÿ8ÁÎ§‘ú-
+_squid:UselessImportCheck"4Remove this unused import 'android.content.Context'.(©Ê‰è8ğ•ıú-
+isquid:UselessImportCheck	"9Remove this unused import 'amap.com.Client.RecordClient'.(´¿ùÿÿÿÿ8áˆóú-
+ƒsquid:S1149™"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(¦‹ØŒûÿÿÿÿ8‹ï“•ú-
+hsquid:UnusedPrivateMethodˆ"6Remove this unused private "getPathLineString" method.(Ô±ƒ‚ùÿÿÿÿ8‹ï“•ú-
+jsquid:UselessImportCheck":Remove this unused import 'android.database.SQLException'.(ø‹çëşÿÿÿÿ8ŸÒüú-
+ssquid:UselessImportCheck"CRemove this unused import 'android.database.sqlite.SQLiteDatabase'.(ãµèÈùÿÿÿÿ8ğ•ıú-
+bsquid:S1155¥">Use isEmpty() to check whether the collection is empty or not.(â×—˜ÿÿÿÿÿ8‹ï“•ú-

@@ -17,9 +17,9 @@ public class RecordClient {
 
     private static OkHttpClient client = new OkHttpClient();
 
-    private static String saveUrl = "http://172.23.49.47:8080/saveRecord";
-    private static String getUrl = "http://172.23.49.47:8080/getRecord";
-    private static String getInterval = "http://172.23.49.47:8080/getInterval";
+    private static String saveUrl = "http://172.23.61.163:8080/saveRecord";
+    private static String getUrl = "http://172.23.61.163:8080/getRecord";
+    private static String getInterval = "http://172.23.61.163:8080/getInterval";
 
     private static long defaultInterval = 120000;
 

@@ -1,0 +1,10 @@
+
+‚squid:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(¦‹ØŒûÿÿÿÿ8»’…¼ú-
+Fsquid:S1148W"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8»’…¼ú-
+dsquid:S2142V"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8»’…¼ú-
+¥squid:S1186“"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ıÎµÉùÿÿÿÿ8»’…¼ú-
+Esquid:S2189K""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8»’…¼ú-
+psquid:S00117q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ıÃ‹8»’…¼ú-
+Tsquid:S2696N"6Make the enclosing method "static" or remove this set.(ïÊê´8»’…¼ú-
+Hsquid:S00108y")Either remove or fill this block of code.(”ı¾8»’…¼ú-
+€squid:S1488q"bImmediately return this expression instead of assigning it to the temporary variable "android_id".(®ıÃ‹8»’…¼ú-

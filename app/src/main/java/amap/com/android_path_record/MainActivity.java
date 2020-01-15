@@ -1,44 +1,31 @@
 package amap.com.android_path_record;
 
-import amap.com.Client.RecordClient;
-import amap.com.record.TraceRecordDTO;
-import amap.com.service.RecordService;
+import amap.com.service.LocationService;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.bluetooth.BluetoothAdapter;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.provider.Settings;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
-
-import com.amap.api.location.AMapLocation;
-import com.amap.api.location.AMapLocationClient;
-import com.amap.api.location.AMapLocationClientOption;
-import com.amap.api.location.AMapLocationListener;
-import com.amap.api.maps.*;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Timer;
 
-import amap.com.database.DbAdapter;
-
-
-public class MainActivity extends Activity implements LocationSource,
-        AMapLocationListener {
-
-    private AMapLocationClient mLocationClient;
-    private AMapLocationClientOption mLocationOption;
+public class MainActivity extends Activity {
+    private MyConn conn;
+    private Intent intent;
 
     //是否需要检测后台定位权限，设置为true时，如果用户没有给予后台定位权限会弹窗提示
     private boolean needCheckBackLocation = false;
@@ -82,92 +69,41 @@ public class MainActivity extends Activity implements LocationSource,
             };
             needCheckBackLocation = true;
         }
-        setContentView(R.layout.basicmap_activity);
-        init();
+        setContentView(R.layout.activity_main);
+
+        initService();
     }
 
-    private void init(){
-        if (mLocationClient == null) {
-            mLocationClient = new AMapLocationClient(this);
-            mLocationOption = new AMapLocationClientOption();
-            //获取最近3s内精度最高的一次定位结果：
-            mLocationOption.setOnceLocationLatest(true);
-            //设置定位监听
-            mLocationClient.setLocationListener(this);
-            //设置为高精度定位模式
-            mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
-            mLocationOption.setInterval(interval);
-            //设置定位参数
-            mLocationClient.setLocationOption(mLocationOption);
-            // 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，
-            // 注意设置合适的定位时间的间隔（最小间隔支持为2000ms），并且在合适时间调用stopLocation()方法来取消定位请求
-            // 在定位结束后，在合适的生命周期调用onDestroy()方法
-            // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
-            mLocationClient.startLocation();
-
-            intervalSetThread.start();
-        }
+    /*******************************service info start*********************************/
+    private void initService() {
+        intent = new Intent(this, LocationService.class);
+        //设置前台Service，提升App进程优先级
+        startService(intent);
+//        intent = new Intent();
+//        intent.setAction("amap.com.service.LOCATION_SERVICE");
+//        //Android 5.0之后，隐式调用是除了设置setAction()外，还需要设置setPackage();
+//        intent.setPackage("amap.com.service");
+//
+//        conn = new MyConn();
+//        //startService(intent);
+//        bindService(intent, conn, BIND_AUTO_CREATE);
     }
 
-    /**
-     * 定时修改interval
-     */
-    private static long interval = 120000;
-    Thread intervalSetThread = new Thread(new Runnable() {
+    // 定义一个类用来监视服务的状态
+    private class MyConn implements ServiceConnection {
         @Override
-        public void run() {
-            interval = RecordClient.getInterval();
-            try {
-                Thread.sleep(300000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            Toast.makeText(getApplicationContext(), "onServiceConnected", Toast.LENGTH_SHORT);
+            Log.e("service", "onServiceConnected!");
         }
-    });
 
-    protected void saveRecord(AMapLocation aMapLocation) {
-        try {
-            if (aMapLocation != null) {
-                String point = amapLocationToString(aMapLocation);
-                TraceRecordDTO traceRecordDTO = DbAdapter.createrecord(point, new Date());
-                traceRecordDTO.setImei(getIMEI());
-                traceRecordDTO.setUserInfo(getDeviceName());
-
-                RecordService.addTraceRecord(traceRecordDTO);
-            } else {
-                Toast.makeText(MainActivity.this, "没有记录到路径", Toast.LENGTH_SHORT)
-                        .show();
-            }
-        } catch (Exception e) {
-            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT)
-                    .show();
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            Log.e("service", "onServiceDisconnected!");
         }
+
     }
 
-    private String getIMEI() {
-        String android_id = Settings.System.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
-        return android_id;
-    }
-
-    private String getDeviceName() {
-        String deviceName = Build.BRAND + "-" + Build.MODEL;
-        try {
-            deviceName = BluetoothAdapter.getDefaultAdapter().getName();
-        }catch (Exception e){
-        }
-        return deviceName;
-    }
-
-    private String amapLocationToString(AMapLocation location) {
-        StringBuffer locString = new StringBuffer();
-        locString.append(location.getLatitude()).append(",");
-        locString.append(location.getLongitude()).append(",");
-        locString.append(location.getProvider()).append(",");
-        locString.append(location.getTime()).append(",");
-        locString.append(location.getSpeed()).append(",");
-        locString.append(location.getBearing());
-        return locString.toString();
-    }
 
     /**
      * 方法必须重写
@@ -208,39 +144,6 @@ public class MainActivity extends Activity implements LocationSource,
     @Override
     protected void onDestroy() {
         super.onDestroy();
-    }
-
-    @Override
-    public void activate(OnLocationChangedListener listener) {
-    }
-
-    @Override
-    public void deactivate() {
-        if (mLocationClient != null) {
-            mLocationClient.stopLocation();
-            mLocationClient.onDestroy();
-
-        }
-        mLocationClient = null;
-    }
-
-    /**
-     * 定位结果回调
-     *
-     * @param amapLocation 位置信息类
-     */
-    @Override
-    public void onLocationChanged(AMapLocation amapLocation) {
-        if (amapLocation != null) {
-            if (amapLocation.getErrorCode() == 0) {
-                saveRecord(amapLocation);
-            } else {
-                //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
-                Log.e("AmapError", "location Error, ErrCode:"
-                        + amapLocation.getErrorCode() + ", errInfo:"
-                        + amapLocation.getErrorInfo());
-            }
-        }
     }
 
     /*******************************permission check********************************/

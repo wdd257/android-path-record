@@ -1,7 +1,7 @@
 
 Qsquid:S1118
 ":Add a private constructor to hide the implicit public one.(×¼­Æ
-usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÖŒá¡þÿÿÿÿ
-psquid:S22933"YReplace the type specification in this constructor call with the diamond operator ("<>").(Æœˆý
 ‡squid:S1319X"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ôùÙ×
 psquid:S2293Y"YReplace the type specification in this constructor call with the diamond operator ("<>").(¯Ø¥¬
+psquid:S22933"YReplace the type specification in this constructor call with the diamond operator ("<>").(Æœˆý
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÖŒá¡þÿÿÿÿ

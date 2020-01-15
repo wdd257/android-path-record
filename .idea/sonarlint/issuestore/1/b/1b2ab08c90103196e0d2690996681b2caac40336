@@ -1,17 +1,17 @@
 
-"squid:ClassVariableVisibilityCheck"SMake resData a static final constant or non-public and provide accessors if needed.(³¨â’şÿÿÿÿ8ıù½›ú-
-]squid:S1118":Add a private constructor to hide the implicit public one.(åó“øÿÿÿÿ8à‹ª›ú-
-Jsquid:S1444"3Make this "public static batchSaveSize" field final(ÚèÅÉ
-‰"squid:ClassVariableVisibilityCheck"VMake retryTimes a static final constant or non-public and provide accessors if needed.(ÿæ¤øÿÿÿÿ
-‡"squid:ClassVariableVisibilityCheck"YMake batchSaveSize a static final constant or non-public and provide accessors if needed.(ÚèÅÉ
-Isquid:S1444"2Make this "public static batchGetSize" field final(µ˜¾Æ
-"squid:ClassVariableVisibilityCheck"VMake queryParam a static final constant or non-public and provide accessors if needed.(ÂÁİüÿÿÿÿ8Ò­¹›ú-
-Fsquid:S11483"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8òö¿›ú-
-?squid:S1148N"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-…squid:S1488 "bImmediately return this expression instead of assigning it to the temporary variable "recordDTOS".(ÀÂ‰ûÿÿÿÿ8øŒ‘ú-
 Xsquid:S1444"5Make this "public static batchGetSizeAll" field final(«çÁ‡şÿÿÿÿ8¿“‘ú-
-Ssquid:S1444"0Make this "public static queryParam" field final(ÂÁİüÿÿÿÿ8Ò­¹›ú-
-Psquid:S1444"-Make this "public static resData" field final(³¨â’şÿÿÿÿ8ıù½›ú-
 †"squid:ClassVariableVisibilityCheck"XMake batchGetSize a static final constant or non-public and provide accessors if needed.(µ˜¾Æ
-Lsquid:S1444"0Make this "public static retryTimes" field final(ÿæ¤øÿÿÿÿ
+"squid:ClassVariableVisibilityCheck"VMake queryParam a static final constant or non-public and provide accessors if needed.(ÂÁİüÿÿÿÿ8Ò­¹›ú-
+"squid:ClassVariableVisibilityCheck"SMake resData a static final constant or non-public and provide accessors if needed.(³¨â’şÿÿÿÿ8ıù½›ú-
+‰"squid:ClassVariableVisibilityCheck"VMake retryTimes a static final constant or non-public and provide accessors if needed.(ÿæ¤øÿÿÿÿ
+?squid:S1148N"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
 •"squid:ClassVariableVisibilityCheck"[Make batchGetSizeAll a static final constant or non-public and provide accessors if needed.(«çÁ‡şÿÿÿÿ8¿“‘ú-
+]squid:S1118":Add a private constructor to hide the implicit public one.(åó“øÿÿÿÿ8à‹ª›ú-
+Ssquid:S1444"0Make this "public static queryParam" field final(ÂÁİüÿÿÿÿ8Ò­¹›ú-
+…squid:S1488 "bImmediately return this expression instead of assigning it to the temporary variable "recordDTOS".(ÀÂ‰ûÿÿÿÿ8øŒ‘ú-
+Isquid:S1444"2Make this "public static batchGetSize" field final(µ˜¾Æ
+Psquid:S1444"-Make this "public static resData" field final(³¨â’şÿÿÿÿ8ıù½›ú-
+Lsquid:S1444"0Make this "public static retryTimes" field final(ÿæ¤øÿÿÿÿ
+Jsquid:S1444"3Make this "public static batchSaveSize" field final(ÚèÅÉ
+‡"squid:ClassVariableVisibilityCheck"YMake batchSaveSize a static final constant or non-public and provide accessors if needed.(ÚèÅÉ
+Fsquid:S11483"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8òö¿›ú-
