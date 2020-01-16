@@ -3,6 +3,7 @@ package amap.com.database;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 import amap.com.Client.QueryParam;
@@ -35,6 +36,18 @@ public class DbAdapter {
     public static final String KEY_STRAT = "stratpoint";
     public static final String KEY_END = "endpoint";
     public static final String KEY_DATE = "date";
+
+
+    private static ConcurrentHashMap<String, PathRecord> recordMap = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<String, String> mId2UserInfoMap = new ConcurrentHashMap<>();
+
+
+    public static String getUserInfo(String mId) {
+        if (mId2UserInfoMap.get(mId) != null) {
+            return mId2UserInfoMap.get(mId);
+        }
+        return "";
+    }
 
     /**
      * 数据库存入一个数据点
@@ -71,7 +84,12 @@ public class DbAdapter {
         }
         if (!map.isEmpty() && !map.values().isEmpty()) {
             for (List<TraceRecordDTO> list : map.values()) {
+                if (list == null || list.isEmpty()) {
+                    continue;
+                }
                 PathRecord record = TraceRecordDTO2PathRecord(list);
+                recordMap.put(record.getmId(), record);
+                mId2UserInfoMap.put(record.getmId(), list.get(0).getUserInfo());
                 allRecord.add(record);
             }
         }
@@ -86,15 +104,19 @@ public class DbAdapter {
      * @return
      */
     public PathRecord queryRecordById(String mRecordItemId) {
-        QueryParam queryParam = new QueryParam();
-        queryParam.setImei(mRecordItemId);
-        List<TraceRecordDTO> dtoList = RecordService.getTraceRecordHistory(queryParam);
-        PathRecord record = new PathRecord();
+        if (recordMap.get(mRecordItemId) == null) {
+            QueryParam queryParam = new QueryParam();
+            queryParam.setImei(mRecordItemId);
+            List<TraceRecordDTO> dtoList = RecordService.getTraceRecordHistory(queryParam);
+            PathRecord record = new PathRecord();
 
-        if (dtoList != null && !dtoList.isEmpty()) {
-            record = TraceRecordDTO2PathRecord(dtoList);
+            if (dtoList != null && !dtoList.isEmpty()) {
+                record = TraceRecordDTO2PathRecord(dtoList);
+            }
+            return record;
+        } else {
+            return recordMap.get(mRecordItemId);
         }
-        return record;
     }
 
     private PathRecord TraceRecordDTO2PathRecord(List<TraceRecordDTO> dtoList) {

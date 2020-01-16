@@ -305,6 +305,7 @@ public class MainActivity extends Activity implements LocationSource,
     protected void onResume() {
         try {
             super.onResume();
+            mMapView.onResume();
             if (Build.VERSION.SDK_INT >= 23) {
                 if (isNeedCheck) {
                     checkPermissions(needPermissions);
